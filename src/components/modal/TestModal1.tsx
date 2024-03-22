@@ -15,6 +15,7 @@ function TestModal1() {
         closeModal();
         setReceivedData(() => {
           // Modal에서 Modal을 호출한 경우에 업데이트 로직자체가 수행이 안됨
+          console.log("TestModal2로 부터 받은 데이터:", data);
           return data;
         });
       },

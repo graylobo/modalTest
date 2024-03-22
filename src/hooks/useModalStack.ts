@@ -16,19 +16,20 @@ export function useModalStack() {
     });
   };
 
-  const setDataToPreviousModal = (data: any) => {
-    setModalStack((prevStack) => {
-      const newStack = [...prevStack];
-      const currentModalIndex = newStack.length - 2;
-      if (currentModalIndex >= 0) {
-        const currentModal = newStack[currentModalIndex];
-        newStack[currentModalIndex] = { ...currentModal, data };
-      }
-      return newStack;
-    });
-  };
+  // 해결을 위한 임시방편 코드
+  // const setDataToPreviousModal = (data: any) => {
+  //   setModalStack((prevStack) => {
+  //     const newStack = [...prevStack];
+  //     const currentModalIndex = newStack.length - 2;
+  //     if (currentModalIndex >= 0) {
+  //       const currentModal = newStack[currentModalIndex];
+  //       newStack[currentModalIndex] = { ...currentModal, data };
+  //     }
+  //     return newStack;
+  //   });
+  // };
 
   const currentModal = modalStack[modalStack.length - 1];
 
-  return { openModal, closeModal, currentModal, setDataToPreviousModal };
+  return { openModal, closeModal, currentModal };
 }
