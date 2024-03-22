@@ -16,7 +16,7 @@ function BaseModal() {
         {currentModal.title && (
           <TopSection>
             {currentModal.title && <Title>{currentModal.title}</Title>}
-            <button onClick={handleClose}>닫기</button>
+            <button onClick={handleClose}>close</button>
           </TopSection>
         )}
 

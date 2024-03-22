@@ -7,13 +7,13 @@ function SomeComponent() {
   const [receivedData, setReceivedData] = useState("");
   const handleOpenModal = () => {
     openModal({
-      title: "출고지 설정1",
+      title: "TestModal1",
       element: <TestModal1 />,
       handleConfirm: (data) => {
         closeModal();
         setReceivedData((prev) => {
-          // 일반 컴포넌트에서 Modal을 호출한 경우 내부 업데이트 로직이 정상적으로 실행됨
-          console.log("TestModal1로부터 받은 데이터:", data);
+          // When Modal is called from a regular component, the internal update logic is executed normally.
+          console.log("data received from TestModal1:", data);
           return data;
         });
       },
@@ -22,8 +22,8 @@ function SomeComponent() {
 
   return (
     <div>
-      <div>{`수신값1:${receivedData}`}</div>
-      <button onClick={handleOpenModal}>모달1열기</button>
+      <div>{`received data from TestModal1:${receivedData}`}</div>
+      <button onClick={handleOpenModal}>Open TestModal1</button>
     </div>
   );
 }

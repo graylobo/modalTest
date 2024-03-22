@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useModalStack } from "../../hooks/useModalStack";
 import TestModal2 from "./TestModal2";
 
@@ -9,13 +9,13 @@ function TestModal1() {
 
   const handleOpenModal = () => {
     openModal({
-      title: "출고지 설정2",
+      title: "TestModal2",
       element: <TestModal2 />,
       handleConfirm: (data) => {
         closeModal();
         setReceivedData(() => {
-          // Modal에서 Modal을 호출한 경우에 업데이트 로직자체가 수행이 안됨
-          console.log("TestModal2로 부터 받은 데이터:", data);
+          // When calling Modal from Modal, the update logic itself is not execute.
+          console.log("data received from TestModal2:", data);
           return data;
         });
       },
@@ -24,12 +24,12 @@ function TestModal1() {
 
   return (
     <div>
-      <div>{`수신값2:${receivedData}`}</div>
+      <div>{`received data from TestModal2:${receivedData}`}</div>
       <input type="text" onChange={(e) => setInputData(e.target.value)} />
       <button onClick={() => currentModal.handleConfirm?.(inputData)}>
-        확인
+        Confirm
       </button>
-      <button onClick={handleOpenModal}>모달2열기</button>
+      <button onClick={handleOpenModal}>Open TestModal2</button>
     </div>
   );
 }

@@ -18,7 +18,7 @@ function TestModal2() {
           currentModal.handleConfirm?.(inputData);
         }}
       >
-        확인
+        Confirm
       </button>
     </div>
   );
